@@ -1,0 +1,15 @@
+{
+    "name": "ri7nz/surat",
+    "authors": [
+        {
+            "name": "rAA7",
+            "email": "ri7nz.labs@gmail.com"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+		  "Surat\\": "src/"
+		}
+	},
+    "require": {}
+}
