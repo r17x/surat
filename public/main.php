@@ -11,6 +11,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$arsip->delete($_POST['delete']);
 	}
 }
+else if($_SERVER['REQUEST_METHOD'] === 'GET){
+	if(isset($_GET['surat'])){
+		if($_GET['surat'] != ''){
+			$type_surat  = $_GET['surat'];
+		}
+	}		
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +67,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             </li>
             <li class="nav-item" style="display:none">
               <a class="nav-link" href="?page=import"> Pengaturan </a>
+            </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="?surat=masuk"> Surat Masuk </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?surat=keluar"> Surat Keluar </a>
             </li>
           </ul>
         </nav>
@@ -130,7 +143,8 @@ $val = $arsip->first($_REQUEST['edit']);
 
     <tbody>
         <?php 
-			  $data = $arsip->getAll();
+		  
+	    $data = isset($type_surat) ? $arsip->where($type_surat) : $arsip->getAll();
 				$num = 0;
 			if(!is_null($data)){
             foreach($data as $d) {
