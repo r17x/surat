@@ -37,7 +37,7 @@
 		}
 		public function delete($q){
 			$data = $this->db->prepare("DELETE FROM ".$this->table." WHERE ".$this->findParamD);
-			if($data->execute($q)){
+			if($data->execute(array(':id' => $q)){
 				return true;
 			}
 		}
