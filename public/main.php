@@ -7,6 +7,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$arsip->add();
 	}else if (isset($_POST['Simpan'])){
 		$arsip->update();
+	}else if (isset($_POST['delete'])){
+		$arsip->delete($_POST['delete']);
 	}
 }
 ?>
