@@ -39,5 +39,11 @@ class Surat extends Database{
 		$edit->bindParam(":oldid", $this->request['oldid'],PDO::PARAM_INT);
 		$edit->execute();
 	}
+	
+	public function where($q){
+			$data = $this->db->prepare("SELECT * FROM ".$this->table." WHERE jenis = :jenis");
+			$data->execute(array(':jenis' => $q));
+			return $data->fetchAll(PDO::FETCH_OBJ);
+       }
 }
 
