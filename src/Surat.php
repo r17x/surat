@@ -8,7 +8,7 @@ class Surat extends Database{
 
 	protected $table='surat';
 	protected $findParam='id';
-	protected $findParamD='nomor = :nomor';
+	protected $findParamD='id = :id';
 	protected $fill = array('nomor','asal','tanggal','perihal','keterangan','jenis');
 	public $request;
 	public function __construct($request=null){
